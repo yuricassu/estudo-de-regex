@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+  <input id="g" type="text">
+<button id="pesquisar" type="submit">pesquisar</button>
+<div id="p"></div>
+<div id="b"></div>
+
+
+<script>
+        let arr = ['top', 'topper', 'bot', 'bottom', 'botão', 'test'];
+// só executar a busca quando o botão for clicado
+document.querySelector('#pesquisar').addEventListener('click', function() {
+  let busca = document.querySelector("#g").value; // pegar o valor do input
+  let regex = new RegExp(busca); // usar o valor do input na regex
+  let b1=document.querySelector("#b")
+  let newArr = [];
+  
+  for (let texto of arr){
+    if (texto.match(regex)) {
+      newArr.push(texto);
+    }
+  }
+  console.log('newArr: ', newArr);
+  document.querySelector("#p").innerText = newArr.join(' ');
+b1.innerHTML=newArr[0];
+})
+    </script>
+
+</body>
+</html>
